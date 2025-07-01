@@ -7,3 +7,4 @@ djangorestframework-simplejwt
 psycopg2-binary
 pillow
 requests
+django-environ
