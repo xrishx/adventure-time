@@ -8,3 +8,4 @@ psycopg2-binary
 pillow
 requests
 django-environ
+python-dotenv
