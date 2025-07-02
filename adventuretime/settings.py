@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'company.visainformation',
     'company.legaldocs',
 
+    'blog',
     'queries',
     'reviews',
 ]

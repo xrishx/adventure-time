@@ -25,6 +25,7 @@ from django.conf.urls.static import static
 from adventuretime.routers.company_routers import company_router
 from queries.routers.routers import urlpatterns as queries_router
 from reviews.routers.routers import urlpatterns as reviews_router
+from blog.routers.routers import urlpatterns as blog_router
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -44,6 +45,7 @@ urlpatterns = [
     path('company/', include(company_router.urls)),
     path('queries/', include(queries_router)),
     path('reviews/', include(reviews_router)),
+    path('blog/', include(blog_router)),
     path('api/auth/', include('rest_framework.urls')),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
