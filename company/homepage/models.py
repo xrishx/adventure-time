@@ -24,5 +24,5 @@ class HomepageVideo(models.Model):
         return f"Homepage Video - {self.position}"
     
     class Meta:
-        verbose_name = "Homepage"
-        verbose_name_plural = "Homepage"
+        verbose_name = "Homepage Video"
+        verbose_name_plural = "Homepage Videos"
