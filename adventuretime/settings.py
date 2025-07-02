@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'company.homepage',
     'company.team',
     'company.popup',
+    'company.privacypolicy',
 ]
 
 MIDDLEWARE = [
