@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     'company.popup',
     'company.privacypolicy',
     'company.termsconditions',
+    'company.visainformation',
 ]
 
 MIDDLEWARE = [
