@@ -22,7 +22,7 @@ from drf_yasg import openapi
 from django.conf import settings
 from django.conf.urls.static import static
 
-from company.homepage.routers.routers import urlpatterns as homepage_router
+from adventuretime.routers import router
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -39,7 +39,7 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('company/', include(homepage_router)),
+    path('company/', include(router.urls)),
     path('api/auth/', include('rest_framework.urls')),
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
     path('api', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),

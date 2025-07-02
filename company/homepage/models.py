@@ -23,3 +23,6 @@ class HomepageVideo(models.Model):
     def __str__(self):
         return f"Homepage Video - {self.position}"
     
+    class Meta:
+        verbose_name = "Homepage"
+        verbose_name_plural = "Homepage"

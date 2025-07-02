@@ -54,6 +54,7 @@ INSTALLED_APPS = [
 
     # apps
     'company.homepage',
+    'company.team',
 ]
 
 MIDDLEWARE = [
