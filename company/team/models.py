@@ -11,7 +11,7 @@ class Team(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.name + f'(last updated: {self.updated_at.strftime("%Y-%m-%d %H:%M")})'
     
     class Meta:
         verbose_name = 'Team Member'

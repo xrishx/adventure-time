@@ -8,7 +8,7 @@ class VisaInformation(models.Model):
     updated_at = models.DateTimeField(auto_now=True, help_text='Updated at')
 
     def __str__(self):
-        return f'Visa and Information'
+        return f'Visa and Information (last updated: {self.updated_at.strftime("%Y-%m-%d %H:%M")})'
     
     class Meta:
         verbose_name = 'Visa and Information'

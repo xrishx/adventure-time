@@ -8,7 +8,7 @@ class TermsConditions(models.Model):
     updated_at = models.DateTimeField(auto_now=True, help_text='Updated at')
 
     def __str__(self):
-        return f'Terms and Conditions'
+        return f'Terms and Conditions (last updated: {self.updated_at.strftime("%Y-%m-%d %H:%M")})'
     
     class Meta:
         verbose_name = 'Terms and Conditions'

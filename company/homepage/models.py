@@ -21,7 +21,7 @@ class HomepageVideo(models.Model):
             raise ValidationError('Please proivide either video file or video link, not both')
 
     def __str__(self):
-        return f"Homepage Video - {self.position}"
+        return f'Homepage Video - {self.position}'
     
     class Meta:
         verbose_name = "Homepage Video"
