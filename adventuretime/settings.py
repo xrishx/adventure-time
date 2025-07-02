@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'company.legaldocs',
 
     'queries',
+    'reviews',
 ]
 
 MIDDLEWARE = [
