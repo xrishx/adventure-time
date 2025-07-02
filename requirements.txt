@@ -9,3 +9,4 @@ pillow
 requests
 django-environ
 python-dotenv
+django-phonenumber-field[phonenumbers]

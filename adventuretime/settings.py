@@ -60,6 +60,8 @@ INSTALLED_APPS = [
     'company.termsconditions',
     'company.visainformation',
     'company.legaldocs',
+
+    'queries',
 ]
 
 MIDDLEWARE = [
@@ -187,3 +189,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+PHONE_NUMBER_DEFAULT_REGION = 'NP'
