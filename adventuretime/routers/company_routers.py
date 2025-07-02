@@ -9,13 +9,13 @@ from company.legaldocs.routers.routers import legaldocs_router
 from rest_framework.routers import DefaultRouter
 
 # New main router
-router = DefaultRouter()
+company_router = DefaultRouter()
 
 # Extend main router with other routers' URL patterns
-router.registry.extend(homepage_router.registry)
-router.registry.extend(team_router.registry)
-router.registry.extend(popup_router.registry)
-router.registry.extend(privacypolicy_router.registry)
-router.registry.extend(termsconditions_router.registry)
-router.registry.extend(visainformation_router.registry)
-router.registry.extend(legaldocs_router.registry)
+company_router.registry.extend(homepage_router.registry)
+company_router.registry.extend(team_router.registry)
+company_router.registry.extend(popup_router.registry)
+company_router.registry.extend(privacypolicy_router.registry)
+company_router.registry.extend(termsconditions_router.registry)
+company_router.registry.extend(visainformation_router.registry)
+company_router.registry.extend(legaldocs_router.registry)
