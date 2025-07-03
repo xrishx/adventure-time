@@ -7,6 +7,7 @@ class Review(models.Model):
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], help_text='Star Rating (1-5)')
     review = models.TextField(max_length=1000, help_text='Review')
     image = models.ImageField(upload_to='images/reviews', null=True, blank=True, help_text='Upload an image file')
+    show = models.BooleanField(default=False, help_text='Show?')
 
     created_at = models.DateTimeField(auto_now_add=True, help_text='Created at')
     updated_at = models.DateTimeField(auto_now=True, help_text='Updated at')

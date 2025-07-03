@@ -22,15 +22,16 @@ from drf_yasg import openapi
 from django.conf import settings
 from django.conf.urls.static import static
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
+# from rest_framework_simplejwt.views import (
+#     TokenObtainPairView,
+#     TokenRefreshView,
+# )
 
 from adventuretime.routers.company_routers import company_router
 from queries.routers.routers import urlpatterns as queries_router
 from reviews.routers.routers import urlpatterns as reviews_router
 from blog.routers.routers import urlpatterns as blog_router
+from faqs.routers.routers import urlpatterns as faqs_router
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -46,14 +47,15 @@ schema_view = get_schema_view(
 )
 
 urlpatterns = [
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('admin/', admin.site.urls),
     path('company/', include(company_router.urls)),
     path('queries/', include(queries_router)),
     path('reviews/', include(reviews_router)),
     path('blog/', include(blog_router)),
+    path('faqs/', include(faqs_router)),
 
     path('api/auth/', include('rest_framework.urls')),
 
