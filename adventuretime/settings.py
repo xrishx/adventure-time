@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import environ
+from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env(DEBUG=(bool, False))
@@ -53,6 +54,8 @@ INSTALLED_APPS = [
     'rest_framework_simplejwt.token_blacklist',
 
     # apps
+    # 'users',
+
     'company.homepage',
     'company.team',
     'company.popup',
@@ -74,9 +77,14 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'adventuretime.urls'
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8000",
+]
 
 TEMPLATES = [
     {
@@ -106,19 +114,8 @@ REST_FRAMEWORK = {
 
 
 # SIMPLE_JWT = {
-#     'ACCESS_TOKEN_LIFETIME': env('ACCESS_TOKEN_LIFETIME'),
-#     'REFRESH_TOKEN_LIFETIME': env('REFRESH_TOKEN_LIFETIME'),
-#     'ROTATE_REFRESH_TOKENS': True,
-#     'BLACKLIST_AFTER_ROTATION': True,
-#     'UPDATE_LAST_LOGIN': True,
-
-#     'ALGORITHM': 'HS256',
-#     'SIGNING_KEY': SECRET_KEY,
-#     'VERIFYING_KEY': None,
-#     'AUDIENCE': None,
-#     'ISSUER': None,
-#     'JWK_URL': None,
-#     'LEEWAY': 0,
+#     'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+#     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 
 #     'AUTH_HEADER_TYPES': ('Bearer',),
 #     'AUTH_HEADER_NAME': 'HTTP_AUTHORIZATION',
@@ -131,11 +128,11 @@ REST_FRAMEWORK = {
 #     'TOKEN_USER_CLASS': 'rest_framework_simplejwt.models.TokenUser',
 
 #     'JTI_CLAIM': 'jti',
-
-#     'SLIDING_TOKEN_REFRESH_EXP_CLAIM': 'refresh_exp',
-#     'SLIDING_TOKEN_LIFETIME': env('SLIDING_TOKEN_LIFETIME'),
-#     'SLIDING_TOKEN_REFRESH_LIFETIME': env('SLIDING_TOKEN_REFRESH_LIFETIME'),
 # }
+
+# AUTH_USER_MODEL = 'users.User'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
