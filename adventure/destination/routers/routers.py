@@ -3,7 +3,7 @@ from adventure.destination.viewsets.viewsets import DestinationViewSet, Departur
 from django.urls import path, include
 
 destination_router = DefaultRouter()
-destination_router.register(r'destinations', DestinationViewSet)
+destination_router.register(r'destination', DestinationViewSet)
 destination_router.register(r'departures', DepartureViewSet)
 destination_router.register(r'gallery-images', GalleryImageViewSet)
 
