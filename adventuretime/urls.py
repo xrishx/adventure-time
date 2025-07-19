@@ -34,6 +34,7 @@ from queries.routers.routers import urlpatterns as queries_router
 from reviews.routers.routers import urlpatterns as reviews_router
 from blog.routers.routers import urlpatterns as blog_router
 from faqs.routers.routers import urlpatterns as faqs_router
+from users.routers.routers import urlpatterns as users_router
 
 schema_view = get_schema_view(
     openapi.Info(
@@ -60,7 +61,7 @@ urlpatterns = [
     path('reviews/', include(reviews_router)),
     path('blog/', include(blog_router)),
     path('faqs/', include(faqs_router)),
-
+    path('users/', include(users_router)),
     path('api/auth/', include('rest_framework.urls')),
 
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
