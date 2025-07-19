@@ -62,6 +62,8 @@ urlpatterns = [
     path('blog/', include(blog_router)),
     path('faqs/', include(faqs_router)),
     path('users/', include(users_router)),
+
+    
     path('api/auth/', include('rest_framework.urls')),
 
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
