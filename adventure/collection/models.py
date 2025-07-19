@@ -3,7 +3,7 @@ from adventure.destination.models import Destination
 
 class Collection(models.Model):
     name = models.CharField(max_length=100, help_text='Collection Name')
-    destination = models.ForeignKey(Destination, on_delete=models.PROTECT, help_text='Destination')
+    destination = models.ManyToManyField(Destination, help_text='Destination')
 
     created_at = models.DateTimeField(auto_now_add=True, help_text='Created at')
     updated_at = models.DateTimeField(auto_now=True, help_text='Updated at')
