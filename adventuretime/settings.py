@@ -52,9 +52,15 @@ INSTALLED_APPS = [
     'corsheaders',
     'rest_framework_simplejwt',
     'rest_framework_simplejwt.token_blacklist',
+    'django_countries',
 
     # apps
     # 'users',
+
+    'adventure.package',
+    'adventure.activities',
+    'adventure.destination',
+    'adventure.collection',
 
     'company.homepage',
     'company.team',
@@ -63,6 +69,8 @@ INSTALLED_APPS = [
     'company.termsconditions',
     'company.visainformation',
     'company.legaldocs',
+
+    'booking',
 
     'blog',
     'queries',
@@ -190,3 +198,6 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
 PHONE_NUMBER_DEFAULT_REGION = 'NP'
+
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+ADMIN_EMAIL = env('ADMIN_EMAIL')

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Booking Notification - {{ booking.fullname }}</title>
+</head>
+<body>
+    <h1>New Trip Booking Notification - {{ booking.fullname }}</h1>
+    <p>Dear Admin,
+        <br>
+        A new trip booking has been submitted by {{ booking.fullname }}.
+        <br>
+        Here are the details of the booking:
+    </p>
+    <ul>
+        <li>Trip Details</li>
+        <li></li>
+        <li><strong>Contact:</strong> {{ booking.phone_number }}</li>
+        <li><strong>Activity:</strong> {{ booking.activity }}</li>
+        <li><strong>Package:</strong> {{ booking.package }}</li>
+        <li><strong>Destination:</strong> {{ booking.destination }}</li>
+        <li><strong>Arrival Date:</strong> {{ booking.arrival_date }}</li>
+        <li><strong>Departure Date:</strong> {{ booking.departure_date }}</li>
+        <li><strong>Service Type:</strong> {{ booking.get_service_type_display }}</li>
+    </ul>
+    <p>Please review this booking!</p>
+</body>
+</html>

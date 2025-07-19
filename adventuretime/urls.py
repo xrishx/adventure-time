@@ -27,7 +27,9 @@ from django.conf.urls.static import static
 #     TokenRefreshView,
 # )
 
+from adventuretime.routers.adventure_routers import adventure_router
 from adventuretime.routers.company_routers import company_router
+from booking.routers.routers import urlpatterns as booking_router
 from queries.routers.routers import urlpatterns as queries_router
 from reviews.routers.routers import urlpatterns as reviews_router
 from blog.routers.routers import urlpatterns as blog_router
@@ -51,7 +53,9 @@ urlpatterns = [
     # path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
 
     path('admin/', admin.site.urls),
+    path('adventure/', include(adventure_router.urls)),
     path('company/', include(company_router.urls)),
+    path('booking/', include(booking_router)),
     path('queries/', include(queries_router)),
     path('reviews/', include(reviews_router)),
     path('blog/', include(blog_router)),
@@ -63,6 +67,7 @@ urlpatterns = [
     path('api', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
 ]
 
+# During development only
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
