@@ -1,8 +1,10 @@
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 
 # Create your models here.
 class Review(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.PROTECT,null=True, related_name='reviews', help_text='User who submitted review')
     name = models.CharField(max_length=100, help_text='Full Name')
     rating = models.IntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)], help_text='Star Rating (1-5)')
     review = models.TextField(max_length=1000, help_text='Review')

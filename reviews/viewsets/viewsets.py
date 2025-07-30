@@ -15,4 +15,9 @@ class ReviewViewSet(viewsets.ModelViewSet):
         if self.action in ['list', 'retrieve']:
             return ReviewReadSerializer
         return ReviewCreateSerializer
+    
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
+
+        
 

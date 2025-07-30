@@ -28,15 +28,15 @@ class Booking(models.Model):
     # Personal Information
     full_name = models.CharField(max_length=100)
     email = models.EmailField(help_text='Email')
-    phone_number = PhoneNumberField(help_text= 'Phone number')
+    phone_number = models.CharField(max_length=10, help_text= 'Phone number')
     country = CountryField(help_text='Country')
     airlines = models.CharField(max_length=100, choices=Airline.choices, help_text='Airlines')
     no_of_travellers = models.IntegerField(help_text='Number of travellers')
 
     # Activity Details
     activity = models.ForeignKey(Activity, on_delete=models.PROTECT, help_text='Activity')
-    package = models.ForeignKey(Package, on_delete=models.PROTECT, help_text='Package')
-    destination = models.ForeignKey(Destination, on_delete=models.PROTECT, help_text='Destination')
+    package = models.ManyToManyField(Package, help_text='Package')
+    destination = models.ForeignKey(Destination, on_delete=models.PROTECT,null=True, help_text='Destination')
 
     arrival_date = models.DateField(help_text='Arrival Date')
     departure_date = models.DateField(help_text='Departure Date')

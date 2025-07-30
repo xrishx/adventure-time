@@ -17,6 +17,10 @@ class UserManager(BaseUserManager):
         extra_fields.setdefault("is_superuser", True)
         return self.create_user(email, password, **extra_fields)
 
+    def create_admin(self, email, password=None, **extra_fields):
+        extra_fields.setdefault("is_staff", True)
+        return self.create_user(email, password, **extra_fields)    
+
 class User(AbstractUser):
     username = None
     email = models.EmailField(unique=True)

@@ -1,5 +1,6 @@
 from django.contrib import admin
-from booking.models import Booking
+from .models import Booking
 
-# Register your models here.
-admin.site.register(Booking)
+@admin.register(Booking)
+class BookingAdmin(admin.ModelAdmin):
+    filter_vertical = ('package',) 
